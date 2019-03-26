@@ -105,7 +105,7 @@ class SeleniumMiddleware:
         body = str.encode(self.driver.page_source)
 
         # Expose the driver via the "meta" attribute
-        request.meta.update({'driver': self.driver})
+        request.meta['driver'] = self.driver
 
         return HtmlResponse(
             self.driver.current_url,
